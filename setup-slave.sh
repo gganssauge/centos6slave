@@ -40,8 +40,8 @@ rm -rf /tmp/build
 
 # compile python-2.7
 cd /tmp
-tar xf Python-2.7.10.tgz
-cd Python-2.7.10
+tar xf Python-$PYTHON_VERSION.tgz
+cd Python-$PYTHON_VERSION
 ./configure
 make all install
 # add pip and virtualenv to the newly build python

@@ -34,7 +34,7 @@ RUN yum -y update && \
         tar \
         unzip
 
-ADD https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz /tmp/$PYTHON_VERSION.tgz
+ADD https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz /tmp/Python-$PYTHON_VERSION.tgz
 ADD http://maven.jenkins-ci.org/content/repositories/releases/org/jenkins-ci/plugins/swarm-client/$SWARM_CLIENT_VERSION/$SWARM_CLIENT $JENKINS_HOME/$SWARM_CLIENT
 
 ENV ICU_PATH /opt/icu

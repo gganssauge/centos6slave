@@ -19,7 +19,6 @@ chown -R $JENKINS_UID:$JENKINS_UID $JENKINS_HOME
 
 mkdir -p /tmp/build
 icuprefix=${ICU_PATH-/opt/icu51}
-boostprefix=${OSRBOOSTHOME-/opt/boost-1.58}
 
 cd /tmp/build
 wget -q http://samba.org/ftp/ccache/$ccache
@@ -37,14 +36,6 @@ cd icu/source
 echo $icuprefix/lib > /etc/ld.so.conf.d/icu.conf
 ldconfig
 
-cd /tmp/build
-wget -q http://sourceforge.net/projects/boost/files/boost/1.58.0/boost_1_58_0.tar.gz/download
-tar xf download 
-cd boost_1_58_0/
-./bootstrap.sh --prefix=$boostprefix --with-icu=$icuprefix
-./b2 install
-echo $boostprefix/lib > /etc/ld.so.conf.d/boost.conf
-ldconfig
 rm -rf /tmp/build
 
 # compile python-2.7
